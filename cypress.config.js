@@ -5,7 +5,7 @@ module.exports = defineConfig({
     specPattern: "cypress/Integration/**/*.js",
     //specPattern: "cypress/e2e/**/*.js", 
     fixturesFolder: "custom/fixtures",
-    baseUrl: "https://todoist.com/",
+    baseUrl: "www.aliexpress.com",
     setupNodeEvents(on, config) {
       // Implementa eventos de nodo personalizados aquí si es necesario
     },
