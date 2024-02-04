@@ -1,0 +1,21 @@
+{
+  "name": "auto",
+  "version": "1.0.0",
+  "description": "E2E testing cases in cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "cypress:open": "cypress open"
+  },
+  "keywords": [
+    "automation",
+    "framework",
+    "cypress"
+  ],
+  "author": "santiago",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.6.4",
+    "mocha": "^10.2.0"
+  }
+}
