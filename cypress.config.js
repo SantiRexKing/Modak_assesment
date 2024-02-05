@@ -7,8 +7,9 @@ module.exports = defineConfig({
     fixturesFolder: "custom/fixtures",
     chromeWebSecurity: false,
     baseUrl: "https://www.aliexpress.com",
-    setupNodeEvents(on, config) {
-      // Implementa eventos de nodo personalizados aquí si es necesario   
+    pageLoadTimeout: 100000,
+    setupNodeEvents(on, config) { 
+      return config;
     },
   },
 });

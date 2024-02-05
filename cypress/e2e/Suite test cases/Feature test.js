@@ -1,31 +1,31 @@
-let userdata;
 
-Cypress.on('uncaught:exception', (err, runnable) => {
-    if (err.message.includes('ResizeObserver loop completed with undelivered notifications')) {
-        return false; 
-    }
-    return true;
-});
-
-describe("first try", function() {
+describe("first try",() => {
     beforeEach(() => {
-        cy.visit('/', {
-            onBeforeLoad: (window) => {
-              window.onload = null; // Trata de anular el evento de carga, aunque esto puede no ser efectivo para todos los casos de uso.
+        cy.visit('/',{
+            onBeforeLoad:(contentWindow) => {
+            },
+        });
+        cy.intercept({resourceType: /xhr|fetch/}, {log: false});
+        });
+        Cypress.on('uncaught:exception', (err, runnable) => {
+            
+            return false;
+          });
+        it('close the pop up', () => {
+        
+        cy.wait(10000)
+        .then(() => {
+        cy.get('.pop-close-btn').then(($btn) => {
+            if ($btn.is(':visible')) {
+                $btn.click({force: true});
             }
         });
+        cy.get ('.pc-header--logoImg--mDbiT4k').should('be.visible');
+        cy.get ('.search--keyword--15P08Ji').click({force: true}).clear().type("instax mini");
+        cy.get ('.search--submit--2VTbd-T').click({force: true});
+        cy.url().should('include', '/wholesale-instax-mini');
+        cy.get('a[data-spm-anchor-id="a2g0o.productlist.0.0"]').scrollIntoView().click();
+        cy.get ('.multi--titleText--nXeOvyr').click();
     });
-
-    it('search the element in the page web', () => {
-        cy.wait(20000); // Espera para asegurarse de que cualquier pop-up haya tenido tiempo de aparecer completamente.
-
-        // Intenta cerrar el pop-up. Asegúrate de que el selector CSS es correcto.
-        cy.get('.image-poplayer-modal .pop-close-btn').click({force: true});
-
-        // Ahora procede con la búsqueda o cualquier otra acción que necesites realizar.
-        // Asegúrate de tener el XPath correcto o usa un selector más simple si es posible.
-        // cy.get('input[type="search"]._3vN3V').clear().type("instax mini");
-        // Alternativamente, si necesitas usar XPath:
-        // cy.xpath('//input[@type="search" and @class="_3vN3V"]').clear().type("instax mini");
-    });
+});
 });
