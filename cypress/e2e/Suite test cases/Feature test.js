@@ -13,7 +13,7 @@ describe("first try",() => {
           });
         it('close the pop up', () => {
         
-        cy.wait(10000)
+        cy.wait(2000)
         .then(() => {
         cy.get('.pop-close-btn').then(($btn) => {
             if ($btn.is(':visible')) {
@@ -24,8 +24,9 @@ describe("first try",() => {
         cy.get ('.search--keyword--15P08Ji').click({force: true}).clear().type("instax mini");
         cy.get ('.search--submit--2VTbd-T').click({force: true});
         cy.url().should('include', '/wholesale-instax-mini');
-        cy.get('a[data-spm-anchor-id="a2g0o.productlist.0.0"]').scrollIntoView().click();
-        cy.get ('.multi--titleText--nXeOvyr').click();
+        cy.get('.comet-pagination-item-2 > a').scrollIntoView().wait(1000).click();
+        cy.wait(3000);
+        cy.get(':nth-child(2) > .multi--outWrapper--SeJ8lrF > .multi--container--1UZxxHY > .multi--image--2bIiWPB > .images--multiImage--25mi-3K > .images--hover--1N5tJXp').click();
     });
 });
 });
