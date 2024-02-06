@@ -27,19 +27,12 @@ describe("first test",() => {
         cy.get('.comet-pagination-item-2 > a').scrollIntoView().wait(1000).click();
         cy.wait(3000);
         cy.get('.multi--similar--eFkEW53.rcmd-hover-more-action').eq(1).invoke('attr', 'style', 'display: block !important');
-        cy.get('span.multi--btn--3bWs9_p[title="Previsualizar"]')
-        //cy.get('.multi--similar--eFkEW53.rcmd-hover-more-action')
-        .eq(1)
-        .trigger('mouseover') 
-        .wait(2000)
-        .should('be.visible')
-        .click({force: true});
+        cy.get('span.multi--btn--3bWs9_p[title="Previsualizar"]').eq(1).trigger('mouseover') .wait(2000).should('be.visible').click({force: true});
+        cy.get('button.comet-v2-btn.comet-v2-btn-primary.comet-v2-btn-large.add-to-cart--addtocart--RXmuNXk.comet-v2-btn-important').wait(2000).click();
+        cy.get('button.comet-v2-btn.comet-v2-btn.comet-v2-btn-primary.comet-v2-btn-block.cart-summary-button.comet-v2-btn-important').should('be.visible').click();
+        cy.contains('Inicia sesión').should('be.visible');
 
-        //cy.get(':nth-child(2) > .multi--outWrapper--SeJ8lrF > .multi--container--1UZxxHY > .multi--image--2bIiWPB > .images--multiImage--25mi-3K > .images--hover--1N5tJXp').trigger('mouseover');
-        //cy.get('span.multi--btn--3bWs9_p[data-spm-anchor-id="a2g0o.productlist.main.i1.49a82fd8TfOdtw"]')
-        //.should('be.visible')
-        //.invoke('removeAttr', 'target','_self')
-        //.click();
+
     });
 });
 });
