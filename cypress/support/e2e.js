@@ -9,3 +9,5 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 
 require('./commands'); 
+
+import 'cypress-mochawesome-reporter/register';
