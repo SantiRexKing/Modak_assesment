@@ -1,6 +1,3 @@
-Claro, aquí te dejo una versión más pulida y estética para que tu README se vea profesional y agradable en GitHub:
-
-````markdown
 # 🐾 Proyecto de Pruebas Automatizadas con Cypress
 
 Este repositorio contiene pruebas automatizadas para la aplicación utilizando **Cypress**.
